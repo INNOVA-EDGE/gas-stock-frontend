@@ -44,7 +44,7 @@ const features = [
 
 function FeaturesSection() {
   return (
-    <section className={styles.featuresSection}>
+    <section className={styles.featuresSection} id ="features">
       <h2 className={styles.sectionTitle}>Des Fonctionnalités Puissantes pour une Gestion Simplifiée</h2>
       <p className={styles.sectionSubtitle}>
         `gazFlow` vous équipe des outils nécessaires pour maîtriser chaque aspect de votre chaîne logistique de gaz.

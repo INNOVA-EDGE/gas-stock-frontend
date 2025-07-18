@@ -5,6 +5,8 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
 import UserRolesSection from './components/UserRolesSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage'; // On importe la nouvelle page
 
@@ -15,6 +17,8 @@ const HomePage = () => (
       <HeroSection />
       <FeaturesSection />
       <UserRolesSection />
+      <HowItWorksSection />
+      <Footer/>
     </main>
   </div>
 );

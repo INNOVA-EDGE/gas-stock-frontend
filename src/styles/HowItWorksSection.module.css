@@ -1,0 +1,112 @@
+/* src/styles/HowItWorksSection.module.css */
+
+.howItWorksSection {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  /* Revenir à la couleur teintée pour l'alternance */
+  background-color: rgba(47, 79, 79, 0.05); /* <-- COULEUR DE FOND */
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-neutral-dark-gray);
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--color-neutral-text-base);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  line-height: 1.5;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adapté pour 4 étapes */
+  gap: var(--spacing-lg);
+  max-width: 1000px; /* Un peu moins large pour un look plus compact si 4 colonnes */
+  margin: 0 auto;
+}
+
+.stepCard {
+  background-color: var(--color-neutral-white); /* Les cartes en blanc pur */
+  padding: var(--spacing-xl);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Pour centrer le contenu verticalement */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stepIcon {
+  font-size: 3.8em; /* Icônes un peu plus grandes */
+  color: var(--color-primary-dark-lime);
+  margin-bottom: var(--spacing-md);
+  height: 90px; /* Hauteur fixe pour l'icône */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepTitle {
+  font-size: 1.7em; /* Titres d'étapes un peu plus grands */
+  color: var(--color-neutral-dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700; /* Plus de poids pour les titres d'étapes */
+}
+
+.stepDescription {
+  font-size: 1em;
+  color: var(--color-neutral-text-base);
+  line-height: 1.5;
+  flex-grow: 1; /* Permet à la description de prendre l'espace restant */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* S'adapte mieux sur tablettes */
+  }
+}
+
+@media (max-width: 768px) {
+  .howItWorksSection {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .sectionTitle {
+    font-size: 2.2em;
+  }
+
+  .sectionSubtitle {
+    font-size: 1em;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+  }
+
+  .stepCard {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .stepIcon {
+    font-size: 3.2em;
+  }
+  .stepTitle {
+    font-size: 1.5em;
+  }
+}
