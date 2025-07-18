@@ -1,0 +1,14 @@
+@import url('./LoginPage.module.css');
+
+.registerBox {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+.multiStepForm {
+  /* Ajoutez des styles spécifiques si vous faites un formulaire multi-étapes */
+}

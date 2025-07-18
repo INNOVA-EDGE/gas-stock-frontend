@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from '../styles/LoginPage.module.css'; // On importe notre nouveau style
-import Lottie from 'lottie-react';
-import gasFlowAnimationData from '../assets/animations/bouteille-gaz-animee.json';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from '../styles/LoginPage.module.css';
 
 export default function LoginPage() {
   const [role, setRole] = useState('CLIENT_MENAGE');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // TODO: Étape suivante - Appeler Keycloak avec les identifiants
     alert(`Tentative de connexion avec le rôle : ${role}`);
+    // TODO: Logique de connexion avec Keycloak
   };
 
   const isClientRole = role === 'CLIENT_MENAGE' || role === 'CLIENT_REVENDEUR';
@@ -30,12 +29,7 @@ export default function LoginPage() {
           <form onSubmit={handleLogin} className={styles.loginForm}>
             <div className={styles.inputGroup}>
               <label htmlFor="role">Je me connecte en tant que</label>
-              <select
-                id="role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className={styles.selectField}
-              >
+              <select id="role" value={role} onChange={(e) => setRole(e.target.value)} className={styles.selectField}>
                 <option value="CLIENT_MENAGE">Client Ménage</option>
                 <option value="CLIENT_REVENDEUR">Client Revendeur</option>
                 <option value="ADMIN">Administrateur</option>
@@ -49,29 +43,15 @@ export default function LoginPage() {
 
             <div className={styles.inputGroup}>
               <label htmlFor="username">Identifiant</label>
-              <input
-                type="text"
-                id="username"
-                className={styles.inputField}
-                placeholder="votre.identifiant"
-                required
-              />
+              <input type="text" id="username" className={styles.inputField} placeholder="votre.identifiant" required />
             </div>
 
             <div className={styles.inputGroup}>
               <label htmlFor="password">Mot de passe</label>
-              <input
-                type="password"
-                id="password"
-                className={styles.inputField}
-                placeholder="••••••••"
-                required
-              />
+              <input type="password" id="password" className={styles.inputField} placeholder="••••••••" required />
             </div>
 
-            <button type="submit" className={styles.submitButton}>
-              Se Connecter
-            </button>
+            <button type="submit" className={styles.submitButton}>Se Connecter</button>
 
             {isClientRole && (
               <p className={styles.registerLink}>
