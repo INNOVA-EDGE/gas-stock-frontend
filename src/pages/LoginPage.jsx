@@ -1,15 +1,34 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from '../styles/LoginPage.module.css';
+import { useAuth } from '../context/AuthContext'; // On importe notre hook
 
 export default function LoginPage() {
+  // Le select de rôle est pour l'instant un guide visuel pour l'utilisateur.
+  // La logique de connexion ne l'utilise pas, car Keycloak détermine le rôle.
   const [role, setRole] = useState('CLIENT_MENAGE');
+  const [identifiant, setIdentifiant] = useState('');
+  const [motDePasse, setMotDePasse] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    alert(`Tentative de connexion avec le rôle : ${role}`);
-    // TODO: Logique de connexion avec Keycloak
+    setError('');
+    setLoading(true);
+    try {
+      const userData = await login(identifiant, motDePasse);
+      // TODO: Plus tard, nous mettrons une logique de redirection plus intelligente
+      // en fonction du rôle (userData.role).
+      navigate('/dashboard'); // Redirection générique pour l'instant
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isClientRole = role === 'CLIENT_MENAGE' || role === 'CLIENT_REVENDEUR';
@@ -29,7 +48,12 @@ export default function LoginPage() {
           <form onSubmit={handleLogin} className={styles.loginForm}>
             <div className={styles.inputGroup}>
               <label htmlFor="role">Je me connecte en tant que</label>
-              <select id="role" value={role} onChange={(e) => setRole(e.target.value)} className={styles.selectField}>
+              <select 
+                id="role" 
+                value={role} 
+                onChange={(e) => setRole(e.target.value)} 
+                className={styles.selectField}
+              >
                 <option value="CLIENT_MENAGE">Client Ménage</option>
                 <option value="CLIENT_REVENDEUR">Client Revendeur</option>
                 <option value="ADMIN">Administrateur</option>
@@ -43,15 +67,35 @@ export default function LoginPage() {
 
             <div className={styles.inputGroup}>
               <label htmlFor="username">Identifiant</label>
-              <input type="text" id="username" className={styles.inputField} placeholder="votre.identifiant" required />
+              <input 
+                type="text" 
+                id="username" 
+                className={styles.inputField} 
+                placeholder="votre.identifiant" 
+                value={identifiant}
+                onChange={(e) => setIdentifiant(e.target.value)}
+                required 
+              />
             </div>
 
             <div className={styles.inputGroup}>
               <label htmlFor="password">Mot de passe</label>
-              <input type="password" id="password" className={styles.inputField} placeholder="••••••••" required />
+              <input 
+                type="password" 
+                id="password" 
+                className={styles.inputField} 
+                placeholder="••••••••" 
+                value={motDePasse}
+                onChange={(e) => setMotDePasse(e.target.value)}
+                required 
+              />
             </div>
 
-            <button type="submit" className={styles.submitButton}>Se Connecter</button>
+            {error && <p style={{ color: '#ff4d4d', textAlign: 'center', fontSize: '0.875rem' }}>{error}</p>}
+
+            <button type="submit" className={styles.submitButton} disabled={loading}>
+              {loading ? 'Connexion...' : 'Se Connecter'}
+            </button>
 
             {isClientRole && (
               <p className={styles.registerLink}>
