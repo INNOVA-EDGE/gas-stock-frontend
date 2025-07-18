@@ -1,15 +1,15 @@
-// src/components/Header.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
 
-function Header() {
+export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <a href="/"> {/* Lien vers l'accueil */}
+      <div className={styles.logo} onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <span className={styles.gaz}>gaz</span>
           <span className={styles.flow}>Flow</span>
-        </a>
       </div>
       <nav className={styles.navigation}>
         <ul>
@@ -19,11 +19,9 @@ function Header() {
         </ul>
       </nav>
       <div className={styles.authButtons}>
-        <button className={styles.loginBtn}>Se Connecter</button>
-        <button className={styles.signUpBtn}>S'inscrire</button>
+        <button className={styles.loginBtn} onClick={() => navigate('/login')}>Se Connecter</button>
+        <button className={styles.signUpBtn} onClick={() => navigate('/register')}>S'inscrire</button>
       </div>
     </header>
   );
 }
-
-export default Header;

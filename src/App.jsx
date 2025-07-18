@@ -1,21 +1,37 @@
-// src/App.jsx
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// On importe les composants de section et la nouvelle page
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
-import UserRolesSection from './components/UserRolesSection'; // Ajoute cette ligne
+import UserRolesSection from './components/UserRolesSection';
+import LoginPage from './pages/LoginPage';
 
-function App() {
+// On crée un composant interne pour représenter votre page d'accueil
+const HomePage = () => {
   return (
     <div className="App">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
-        <UserRolesSection /> {/* Ajoute cette ligne */}
-        {/* Laisse les autres sections commentées pour l'instant */}
+        <UserRolesSection />
       </main>
     </div>
+  );
+};
+
+// App.jsx devient le gestionnaire de routes
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        {/* <Route path="/register" element={<RegisterPage />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
