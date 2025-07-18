@@ -1,0 +1,96 @@
+/* src/styles/Header.module.css */
+.header {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-xl); /* Espacement intérieur */
+  background-color: var(--color-neutral-white); /* Fond blanc */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Ombre légère */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Reste en haut lors du défilement */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Assure qu'il est au-dessus des autres éléments */
+}
+
+.logo {
+  font-family: var(--font-family-logo); /* Utilise la nouvelle variable pour le logo */
+  font-size: 1.8em;
+  font-weight: 800; /* Plus épais pour l'impact */
+}
+
+.logo a {
+  color: var(--color-secondary-dark-blue-green); /* Couleur par défaut pour le logo */
+}
+
+.logo .gaz {
+  color: var(--color-secondary-dark-blue-green); /* Pour la partie "gaz" du logo */
+}
+
+.logo .flow {
+  color: var(--color-primary-light-lime); /* Pour la partie "Flow" du logo en vert citron */
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-xl); /* Espacement entre les liens */
+}
+
+.navigation a {
+  color: var(--color-secondary-dark-blue-green);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+  color: var(--color-primary-light-lime); /* Changement de couleur au survol */
+}
+
+.authButtons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.loginBtn, .signUpBtn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.loginBtn {
+  background-color: transparent;
+  color: var(--color-secondary-dark-blue-green);
+  border: 2px solid var(--color-secondary-dark-blue-green);
+}
+
+.loginBtn:hover {
+  background-color: var(--color-neutral-light-gray);
+  border-color: var(--color-neutral-light-gray);
+}
+
+.signUpBtn {
+  background-color: var(--color-primary-light-lime);
+  color: var(--color-secondary-dark-blue-green); /* Ou un gris très foncé pour le contraste */
+  border: 2px solid var(--color-primary-light-lime);
+}
+
+.signUpBtn:hover {
+  background-color: var(--color-primary-dark-lime); /* Vert citron plus foncé au survol */
+  border-color: var(--color-primary-dark-lime);
+  box-shadow: 0 4px 8px rgba(163, 255, 0, 0.3); /* Ombre subtile avec couleur primaire */
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+  .navigation {
+    display: none; /* Cache la navigation sur mobile, prévoir un menu hamburger */
+  }
+  .header {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  .authButtons {
+    gap: var(--spacing-sm);
+  }
+}

@@ -1,0 +1,100 @@
+/* src/styles/UserRolesSection.module.css */
+
+.userRolesSection {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  background-color: var(--color-neutral-white); /* <-- CHANGEMENT ICI */
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-neutral-dark-gray);
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--color-neutral-text-base);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  line-height: 1.5;
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.roleCard {
+  background-color: var(--color-neutral-off-white); /* Les cartes en off-white pour contraster avec le fond blanc de la section */
+  padding: var(--spacing-xl);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roleCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.roleIcon {
+  font-size: 3.5em;
+  color: var(--color-primary-dark-lime);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.roleTitle {
+  font-size: 1.6em;
+  color: var(--color-neutral-dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.roleDescription {
+  font-size: 1em;
+  color: var(--color-neutral-text-base);
+  line-height: 1.5;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .userRolesSection {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .sectionTitle {
+    font-size: 2.2em;
+  }
+
+  .sectionSubtitle {
+    font-size: 1em;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .rolesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .roleCard {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .roleIcon {
+    font-size: 3em;
+  }
+  .roleTitle {
+    font-size: 1.4em;
+  }
+}

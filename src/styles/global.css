@@ -1,0 +1,52 @@
+/* src/styles/global.css */
+
+/* Importe les variables de couleur */
+@import './variables.css';
+
+/* Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth; /* Pour les ancres de navigation fluides */
+}
+
+body {
+  font-family: var(--font-family-body); /* Applique la police du corps à tout le body */
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-neutral-text-base); /* Couleur du texte par défaut */
+  background-color: var(--color-neutral-off-white); /* Arrière-plan général */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading); /* Applique la police des titres */
+  color: var(--color-neutral-dark-gray);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+h1 { font-size: 3.8em; font-weight: 700;} /* Ajusté pour Poppins/Montserrat */
+h2 { font-size: 3em; font-weight: 700;}
+h3 { font-size: 2.2em; font-weight: 600;}
+h4 { font-size: 1.8em; font-weight: 600;}
+h5 { font-size: 1.4em; font-weight: 500;}
+h6 { font-size: 1.2em; font-weight: 500;}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary-dark-lime);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-family-body); /* Utilise la police du corps pour les boutons */
+}

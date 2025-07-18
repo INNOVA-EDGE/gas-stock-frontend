@@ -1,0 +1,31 @@
+/* src/styles/variables.css */
+
+:root {
+  /* Couleurs principales - Ajustement du vert citron pour plus de douceur et d'élégance */
+  --color-primary-light-lime: #A3FF00; /* Vert citron vif, mais pas agressif */
+  --color-primary-dark-lime: #80CC00; /* Vert citron plus foncé pour les hover/active, plus riche */
+  --color-secondary-dark-blue-green: #2F4F4F; /* Garde le même bleu-vert profond, il est bon pour le contraste */
+  --color-accent-blue: #007BFF; /* Un bleu plus vif pour certains accents si besoin */
+
+  /* Couleurs neutres - Plus de nuances de gris pour la profondeur */
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-off-white: #F9F9F9; /* Un blanc légèrement cassé, plus doux que le F8F8F8 */
+  --color-neutral-light-gray: #EDEDED; /* Gris très clair pour les arrière-plans subtils */
+  --color-neutral-medium-gray: #A0A0A0; /* Gris moyen pour les textes secondaires / bordures */
+  --color-neutral-dark-gray: #303030; /* Gris très foncé pour les titres et texte principal */
+  --color-neutral-text-base: #4A4A4A; /* Couleur de texte par défaut légèrement moins foncée que les titres */
+
+  /* Polices */
+  --font-family-heading: 'Poppins', sans-serif; /* Pour les titres - Très impactant et moderne */
+  --font-family-body: 'Inter', sans-serif;    /* Pour le corps de texte - Propre et lisible */
+  --font-family-sans-serif: var(--font-family-body); /* Pour compatibilité si utilisé ailleurs */
+  --font-family-logo: 'Montserrat', sans-serif; /* Pour le logo si tu veux une police différente */
+
+  /* Espacements */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px; /* Ajouté pour des espaces plus grands */
+}

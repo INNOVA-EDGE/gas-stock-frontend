@@ -1,0 +1,101 @@
+/* src/styles/FeaturesSection.module.css */
+
+.featuresSection {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  /* Nouvelle couleur de fond : un bleu-vert très transparent pour une touche d'innovation */
+  background-color: rgba(47, 79, 79, 0.05); /* <-- CHANGEMENT IMPORTANT ICI */
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8em;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-neutral-dark-gray);
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--color-neutral-text-base);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  line-height: 1.5;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background-color: var(--color-neutral-white); /* Les cartes restent en blanc pur pour un bon contraste */
+  padding: var(--spacing-xl);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.featureIcon {
+  font-size: 3.5em;
+  color: var(--color-primary-dark-lime);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.featureTitle {
+  font-size: 1.6em;
+  color: var(--color-neutral-dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.featureDescription {
+  font-size: 1em;
+  color: var(--color-neutral-text-base);
+  line-height: 1.5;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .sectionTitle {
+    font-size: 2.2em;
+  }
+
+  .sectionSubtitle {
+    font-size: 1em;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureCard {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .featureIcon {
+    font-size: 3em;
+  }
+  .featureTitle {
+    font-size: 1.4em;
+  }
+}

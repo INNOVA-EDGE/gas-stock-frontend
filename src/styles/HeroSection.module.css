@@ -1,0 +1,164 @@
+/* src/styles/HeroSection.module.css */
+.heroSection {
+  display: flex;
+  gap: var(--spacing-xl); /* Espacement entre le contenu et l'image */
+  align-items: center; /* Aligne les éléments au centre verticalement */
+  padding: calc(var(--spacing-xl) * 3) var(--spacing-xl) calc(var(--spacing-xl) * 2); /* Plus de padding en haut pour compenser le header fixe */
+  background-color: var(--color-neutral-off-white); /* Fond clair */
+  min-height: 80vh; /* Prend au moins 80% de la hauteur de la vue */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+  justify-content: center; /* Centre le contenu flex si l'écran est grand et qu'il y a de l'espace */
+}
+
+.heroContent {
+  flex: 1; /* Permet au contenu de prendre l'espace disponible */
+  max-width: 600px; /* Limite la largeur du texte pour une meilleure lisibilité */
+  text-align: left; /* Aligne le texte à gauche */
+  min-width: 300px; /* S'assure que le texte ne devienne pas trop étroit */
+  padding-right: var(--spacing-lg); /* Un peu d'espace à droite du texte */
+}
+
+.heroTitle {
+  font-family: var(--font-family-heading); /* Applique la police des titres */
+  font-size: 3.8em; /* Grande taille pour le titre */
+  color: var(--color-neutral-dark-gray);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+  font-weight: 800; /* Poids de police plus fort pour l'impact */
+}
+
+.heroSubtitle {
+  font-family: var(--font-family-body); /* Applique la police du corps */
+  font-size: 1.3em;
+  color: var(--color-neutral-text-base); /* Couleur de texte plus douce */
+  margin-bottom: var(--spacing-xl);
+}
+
+.gazFlowHighlight {
+  color: var(--color-primary-light-lime); /* Met en évidence gazFlow */
+  font-weight: bold;
+}
+
+.heroButtons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-start; /* Aligne les boutons à gauche */
+  flex-wrap: wrap; /* Permet aux boutons de s'enrouler si l'espace est limité */
+  align-items: center; /* Aligne verticalement au centre */
+}
+
+.ctaButton {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: 8px; /* Bords légèrement plus arrondis */
+  font-weight: 700;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* Nouvelles propriétés pour égaliser les tailles */
+  min-width: 220px; /* Définit une largeur minimale confortable, ajusté légèrement */
+  text-align: center; /* Centre le texte dans le bouton */
+  flex-grow: 1; /* Permet au bouton de s'étirer pour prendre l'espace disponible */
+  flex-shrink: 1; /* Permet au bouton de rétrécir si nécessaire */
+  flex-basis: auto; /* La base de la taille est automatique */
+}
+
+.primaryCta {
+  background-color: var(--color-primary-light-lime);
+  color: var(--color-secondary-dark-blue-green); /* Texte foncé pour le contraste */
+  border: 2px solid var(--color-primary-light-lime);
+  box-shadow: 0 6px 12px rgba(163, 255, 0, 0.3); /* Ombre avec couleur primaire */
+}
+
+.primaryCta:hover {
+  background-color: var(--color-primary-dark-lime);
+  border-color: var(--color-primary-dark-lime);
+  transform: translateY(-3px); /* Petit effet de survol */
+  box-shadow: 0 8px 16px rgba(128, 204, 0, 0.4); /* Ombre plus prononcée avec couleur sombre */
+}
+
+.secondaryCta {
+  background-color: transparent;
+  color: var(--color-secondary-dark-blue-green);
+  border: 2px solid var(--color-secondary-dark-blue-green);
+}
+
+.secondaryCta:hover {
+  background-color: var(--color-secondary-dark-blue-green);
+  color: var(--color-neutral-white);
+  transform: translateY(-3px);
+}
+
+/* Conteneur de l'image/animation */
+.heroImageContainer {
+  flex: 1; /* Permet au conteneur de prendre l'espace disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px; /* Largeur minimale pour l'image avant de s'enrouler */
+  max-width: 600px; /* Largeur maximale pour l'image */
+  padding-left: var(--spacing-lg); /* Un peu d'espace à gauche de l'animation */
+}
+
+/* Styles pour l'animation Lottie elle-même */
+.lottieAnimation {
+  width: 100%; /* S'assure que l'animation prend toute la largeur de son conteneur */
+  height: auto; /* La hauteur s'ajustera proportionnellement */
+  display: block; /* Évite les problèmes d'espace blanc sous l'image */
+  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Optionnel: si tu veux une ombre */
+}
+
+
+/* Media Queries pour le responsive adjustments */
+@media (max-width: 1024px) {
+  .heroSection {
+    flex-direction: column; /* Empile les éléments verticalement */
+    text-align: center; /* Centre le texte */
+    padding: calc(var(--spacing-xl) * 2) var(--spacing-md);
+  }
+
+  .heroContent {
+    text-align: center; /* Centre le texte sur les petits écrans */
+    max-width: 100%; /* Occupe toute la largeur disponible */
+    padding-right: 0; /* Pas de padding droit sur les petits écrans */
+  }
+
+  .heroTitle {
+    font-size: 2.8em;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1em;
+  }
+
+  .heroButtons {
+    justify-content: center; /* Centre les boutons */
+    flex-direction: column; /* Empile les boutons */
+    gap: var(--spacing-sm);
+  }
+
+  .ctaButton {
+    width: 80%; /* Occupe plus de largeur sur les écrans plus petits */
+    max-width: 300px; /* Limite la largeur max sur les petits écrans */
+    margin: 0 auto; /* Centre les boutons empilés */
+    flex-grow: 0; /* Désactive le flex-grow pour ne pas qu'ils s'étirent trop en colonne */
+  }
+
+  .heroImageContainer {
+    margin-top: var(--spacing-xl); /* Ajoute de l'espace au-dessus de l'image */
+    padding-left: 0; /* Pas de padding gauche sur les petits écrans */
+    max-width: 400px; /* Réduit la taille de l'animation sur tablette */
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: calc(var(--spacing-xl) + var(--spacing-lg)) var(--spacing-md) var(--spacing-xl);
+  }
+  .heroTitle {
+    font-size: 2.2em;
+  }
+  .lottieAnimation {
+    max-width: 300px; /* Encore plus petit sur les mobiles */
+  }
+}
