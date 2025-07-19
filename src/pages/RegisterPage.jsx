@@ -18,7 +18,6 @@ export default function RegisterPage() {
   });
   
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -30,7 +29,6 @@ export default function RegisterPage() {
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
-    setSuccess('');
 
     if (formData.motDePasse !== formData.confirmPassword) {
       setError("Les mots de passe ne correspondent pas.");
@@ -40,7 +38,6 @@ export default function RegisterPage() {
     setLoading(true);
 
     const payload = {
-      // On génère un identifiant simple à partir de l'email pour commencer
       identifiant: formData.email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/gi, '') + Math.floor(Math.random() * 1000),
       nom: formData.nom,
       prenom: formData.prenom,
@@ -52,17 +49,22 @@ export default function RegisterPage() {
     };
 
     try {
-      const response = await authService.register(payload);
-      setSuccess(response.data + " Vous allez être redirigé...");
-      setTimeout(() => navigate('/login'), 4000);
+      await authService.register(payload);
+      
+      // Redirige vers la page de succès avec le type de client en state
+      navigate('/inscription-reussie', { 
+        state: { clientType: payload.typeClient } 
+      });
+
     } catch (err) {
-      setError(err.response?.data || "Une erreur est survenue lors de l'inscription.");
+      // Affiche un message d'erreur propre
+      const errorMessage = err.response?.data?.message || err.response?.data || "Une erreur est survenue lors de l'inscription.";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
   
-
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginContainer}>
@@ -91,7 +93,6 @@ export default function RegisterPage() {
             <div className={styles.inputGroup}><label htmlFor="motDePasse">Mot de passe</label><input type="password" id="motDePasse" value={formData.motDePasse} onChange={handleChange} className={styles.inputField} required /></div>
             <div className={styles.inputGroup}><label htmlFor="confirmPassword">Confirmer le mot de passe</label><input type="password" id="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className={styles.inputField} required /></div>
             
-            {success && <p style={{ color: 'lime', textAlign: 'center' }}>{success}</p>}
             {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
             <button type="submit" className={styles.submitButton} disabled={loading}>

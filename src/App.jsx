@@ -9,6 +9,7 @@ import HowItWorksSection from './components/HowItWorksSection';
 import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage'; // On importe la nouvelle page
+import InscriptionReussie from './pages/InscriptionReussie';
 
 const HomePage = () => (
   <div className="App">
@@ -29,7 +30,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} /> {/* On ajoute la route */}
+        <Route path="/register" element={<RegisterPage />} /> 
+        <Route path="/inscription-reussie" element={<InscriptionReussie />} />
       </Routes>
     </BrowserRouter>
   );
