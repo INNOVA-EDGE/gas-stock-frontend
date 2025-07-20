@@ -1,0 +1,121 @@
+/* src/components/Dashboards/ClientDashboard/ClientDashboard.module.css */
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1abc9c; /* Greenish-blue */
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ecf0f1; /* Light grey */
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+}
+
+.navItem {
+  margin-bottom: 15px;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navLink:hover, .navLink:focus {
+  background-color: #16a085; /* Darker greenish-blue */
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #ecf0f1; /* Light background */
+}
+
+.mainTitle {
+  color: #1abc9c;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  color: #16a085;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.card h3 {
+  color: #16a085;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #7f8c8d;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.button {
+  background-color: #27ae60; /* Darker green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #229a53; /* Even darker green on hover */
+  transform: translateY(-2px);
+}

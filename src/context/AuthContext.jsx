@@ -9,20 +9,19 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Au chargement de l'app, on vérifie s'il y a un jeton valide dans le localStorage
     const token = localStorage.getItem('accessToken');
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        // On vérifie si le jeton n'est pas expiré
         if (decodedToken.exp * 1000 > Date.now()) {
+          // AMÉLIORATION : On s'assure de filtrer les deux rôles par défaut
+          const userRole = (decodedToken.realm_access?.roles || []).find(r => r !== 'default-roles-gasstockrealm' && r !== 'uma_authorization');
           setUser({
             token,
             identifiant: decodedToken.preferred_username,
-            role: (decodedToken.realm_access?.roles || []).find(r => r !== 'default-roles-gasstockrealm'),
+            role: userRole,
           });
         } else {
-          // Si le jeton est expiré, on le supprime
           authService.logout();
         }
       } catch (error) {
@@ -37,13 +36,16 @@ export const AuthProvider = ({ children }) => {
     const data = await authService.login(username, password);
     const decodedToken = jwtDecode(data.access_token);
     
+    // AMÉLIORATION : On s'assure de filtrer les deux rôles par défaut
+    const userRole = (decodedToken.realm_access?.roles || []).find(r => r !== 'default-roles-gasstockrealm' && r !== 'uma_authorization');
+
     const userData = {
       token: data.access_token,
       identifiant: decodedToken.preferred_username,
-      role: (decodedToken.realm_access?.roles || []).find(r => r !== 'default-roles-gasstockrealm'),
+      role: userRole,
     };
     setUser(userData);
-    return userData; // On retourne les données pour la redirection
+    return userData;
   };
 
   const logout = () => {

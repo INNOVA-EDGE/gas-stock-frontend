@@ -4,9 +4,6 @@ import styles from '../styles/LoginPage.module.css';
 import { useAuth } from '../context/AuthContext'; // On importe notre hook
 
 export default function LoginPage() {
-  // Le select de rôle est pour l'instant un guide visuel pour l'utilisateur.
-  // La logique de connexion ne l'utilise pas, car Keycloak détermine le rôle.
-  const [role, setRole] = useState('CLIENT_MENAGE');
   const [identifiant, setIdentifiant] = useState('');
   const [motDePasse, setMotDePasse] = useState('');
   const [error, setError] = useState('');
@@ -20,18 +17,19 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      const userData = await login(identifiant, motDePasse);
-      // TODO: Plus tard, nous mettrons une logique de redirection plus intelligente
-      // en fonction du rôle (userData.role).
-      navigate('/dashboard'); // Redirection générique pour l'instant
+      // La fonction login du contexte met à jour l'état global de l'utilisateur
+      await login(identifiant, motDePasse);
+      
+      // On redirige vers la route générique /dashboard.
+      // Le composant DashboardRedirect s'occupera de la redirection finale.
+      navigate('/dashboard');
+
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
-
-  const isClientRole = role === 'CLIENT_MENAGE' || role === 'CLIENT_REVENDEUR';
 
   return (
     <div className={styles.loginPage}>
@@ -46,32 +44,16 @@ export default function LoginPage() {
           <p className={styles.subtitle}>Connectez-vous à votre espace.</p>
           
           <form onSubmit={handleLogin} className={styles.loginForm}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="role">Je me connecte en tant que</label>
-              <select 
-                id="role" 
-                value={role} 
-                onChange={(e) => setRole(e.target.value)} 
-                className={styles.selectField}
-              >
-                <option value="CLIENT_MENAGE">Client Ménage</option>
-                <option value="CLIENT_REVENDEUR">Client Revendeur</option>
-                <option value="ADMIN">Administrateur</option>
-                <option value="RESPONSABLE_AGENCE">Responsable d'Agence</option>
-                <option value="RESPONSABLE_ENTREPOT">Responsable d'Entrepôt</option>
-                <option value="RESPONSABLE_PRODUCTION">Responsable d'Unité de Production</option>
-                <option value="RESPONSABLE_SUIVI">Responsable de Suivi</option>
-                <option value="TRANSPORTEUR">Transporteur</option>
-              </select>
-            </div>
+            
+            {/* --- SUPPRIMÉ : Le menu de sélection de rôle n'est plus nécessaire --- */}
 
             <div className={styles.inputGroup}>
-              <label htmlFor="username">Identifiant</label>
+              <label htmlFor="username">Identifiant ou Email</label>
               <input 
                 type="text" 
                 id="username" 
                 className={styles.inputField} 
-                placeholder="votre.identifiant" 
+                placeholder="votre.identifiant ou email" 
                 value={identifiant}
                 onChange={(e) => setIdentifiant(e.target.value)}
                 required 
@@ -97,12 +79,11 @@ export default function LoginPage() {
               {loading ? 'Connexion...' : 'Se Connecter'}
             </button>
 
-            {isClientRole && (
-              <p className={styles.registerLink}>
-                Pas encore de compte ?{' '}
-                <Link to="/register">S'inscrire ici</Link>
-              </p>
-            )}
+            <p className={styles.registerLink}>
+              Pas encore de compte ?{' '}
+              <Link to="/register">S'inscrire ici</Link>
+            </p>
+            
           </form>
         </div>
       </div>
