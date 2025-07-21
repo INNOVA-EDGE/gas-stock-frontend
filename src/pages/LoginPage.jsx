@@ -17,11 +17,12 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      // La fonction login du contexte met à jour l'état global de l'utilisateur
-      await login(identifiant, motDePasse);
+      // La fonction login du contexte met à jour l'état global
+      // et nous retourne les infos de l'utilisateur, y compris son rôle
+      const userData = await login(identifiant, motDePasse);
       
-      // On redirige vers la route générique /dashboard.
-      // Le composant DashboardRedirect s'occupera de la redirection finale.
+      // On redirige vers la route générique /dashboard
+      // Le composant DashboardRedirect s'occupera du reste
       navigate('/dashboard');
 
     } catch (err) {
@@ -44,16 +45,13 @@ export default function LoginPage() {
           <p className={styles.subtitle}>Connectez-vous à votre espace.</p>
           
           <form onSubmit={handleLogin} className={styles.loginForm}>
-            
-            {/* --- SUPPRIMÉ : Le menu de sélection de rôle n'est plus nécessaire --- */}
-
             <div className={styles.inputGroup}>
               <label htmlFor="username">Identifiant ou Email</label>
               <input 
                 type="text" 
                 id="username" 
                 className={styles.inputField} 
-                placeholder="votre.identifiant ou email" 
+                placeholder="votre.identifiant" 
                 value={identifiant}
                 onChange={(e) => setIdentifiant(e.target.value)}
                 required 
@@ -83,7 +81,6 @@ export default function LoginPage() {
               Pas encore de compte ?{' '}
               <Link to="/register">S'inscrire ici</Link>
             </p>
-            
           </form>
         </div>
       </div>
