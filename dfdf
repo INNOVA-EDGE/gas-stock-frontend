@@ -1,0 +1,63 @@
+[33mcommit bc4921ba020bdc20b1c66fe60b4dd19be632f4b5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mfeature/transporteur-dashboard[m[33m)[m
+Merge: 203133d 6f4cf1f
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Sun Jul 20 11:36:20 2025 +0100
+
+    l'authentifiction du user client marche
+
+[33mcommit 203133d0f6825cad066c6227dca1da1fad061cba[m
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Sat Jul 19 19:18:57 2025 +0100
+
+    petit changement de authservice et registerPage
+
+[33mcommit 6f4cf1fe3b65ee843ba3f7bd06b942eec3eb7ae8[m
+Merge: f495eea be131d7
+Author: russelinfo <164105909+russelinfo@users.noreply.github.com>
+Date:   Sat Jul 19 04:26:17 2025 +0100
+
+    Merge pull request #1 from INNOVA-EDGE/feature/dashboards-ui
+    
+    dahbord mis en place
+
+[33mcommit be131d7d42e66fb5d0c07a2adb5b0ef7c793d988[m[33m ([m[1;32mfeature/dashboards-ui[m[33m)[m
+Author: Russel <yemelirussel@gmail.com>
+Date:   Sat Jul 19 04:20:09 2025 +0100
+
+    dahbord mis en place
+
+[33mcommit f495eea4272c4d775acf27236d4fd825191dee76[m
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Sat Jul 19 00:49:37 2025 +0100
+
+    Auth with problems
+
+[33mcommit 6b109348b1c2a88ed43b1cc0a3f077c2da75871b[m
+Author: Russel <yemelirussel@gmail.com>
+Date:   Fri Jul 18 04:25:15 2025 +0100
+
+    landing page ok
+
+[33mcommit 38eaff5db72227de3a92f242970d2c2d498e8e83[m
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Fri Jul 18 04:01:55 2025 +0100
+
+    Ajout registrationPage
+
+[33mcommit b79932a7b536f4e7122eadfbb0666e0cf1e223d0[m
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Fri Jul 18 03:05:29 2025 +0100
+
+    Ajout de LoginPage
+
+[33mcommit bcfc11af4c3fd6d3d2232e99332358bd5bbe49bd[m
+Author: Russel <yemelirussel@gmail.com>
+Date:   Fri Jul 18 01:56:06 2025 +0100
+
+    initialisation du code front
+
+[33mcommit 9a80d9b584722614baccfe3596121487ff8f023e[m
+Author: Captain Naoki <naokicapi12@gmail.com>
+Date:   Fri Jul 18 01:35:55 2025 +0100
+
+    frontEnd inti
