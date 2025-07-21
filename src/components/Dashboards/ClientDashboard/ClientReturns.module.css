@@ -1,0 +1,180 @@
+/* src/components/Dashboards/ClientDashboard/ClientReturns.module.css */
+
+.returnsSection {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #e67e22; /* Bordure orange pour les retours */
+}
+
+.returnsSection .sectionTitle {
+  color: #2c3e50;
+  font-size: 1.6em;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.loadingMessage,
+.errorMessage,
+.noReturnsMessage {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.loadingMessage {
+  background-color: #fdf5e6; /* Orange très clair */
+  color: #d35400;
+  border: 1px solid #fce7cf;
+}
+
+.errorMessage {
+  background-color: #ffe6e6;
+  color: #e74c3c;
+  border: 1px solid #ffcccc;
+}
+
+.noReturnsMessage {
+  background-color: #f7f9fa;
+  color: #555;
+  border: 1px dashed #cccccc;
+  display: flex; /* Pour centrer le bouton */
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.returnsTableContainer {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.returnsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.95em;
+  background-color: #fdfdfd;
+}
+
+.returnsTable th,
+.returnsTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.returnsTable th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.returnsTable tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.statusIconApproved {
+  color: #28a745; /* Vert pour approuvé */
+}
+
+.statusIconPending {
+  color: #f39c12; /* Orange pour en cours */
+}
+
+.statusIconRejected {
+  color: #e74c3c; /* Rouge pour refusé */
+}
+
+.statusIconDefault {
+  color: #95a5a6; /* Gris par défaut */
+}
+
+.newRequestContainer {
+  text-align: center;
+  margin-top: 30px; /* Espace au-dessus du bouton s'il y a un tableau */
+}
+
+.newReturnButton {
+  background-color: #3498db; /* Bleu pour le bouton d'action principale */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.newReturnButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+  .returnsSection {
+    padding: 20px;
+  }
+  .returnsSection .sectionTitle {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+  .returnsTable th,
+  .returnsTable td {
+    padding: 10px 12px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 600px) {
+  .returnsTable thead {
+    display: none;
+  }
+  .returnsTable, .returnsTable tbody, .returnsTable tr, .returnsTable td {
+    display: block;
+    width: 100%;
+  }
+  .returnsTable tr {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  .returnsTable td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .returnsTable td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: #666;
+  }
+  /* N'oubliez pas d'ajouter les attributs data-label dans votre JSX pour les <td> */
+}
