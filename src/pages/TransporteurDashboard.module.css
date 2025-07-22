@@ -1,0 +1,21 @@
+/* src/components/Dashboards/TransporteurDashboard/TransporteurDashboard.module.css */
+
+.dashboardLayout {
+    display: flex;
+    /* Rend le conteneur principal flexible */
+    min-height: 100vh;
+    /* Prend au moins toute la hauteur de la fenêtre */
+    background-color: #F8FAFC;
+    /* Couleur de fond (bg-gray-100 de Tailwind) */
+    width: 100%;
+    /* S'assure qu'il prend toute la largeur disponible */
+}
+
+.mainContentAreaWrapper {
+    flex: 1;
+    /* Permet à cette zone de prendre tout l'espace restant horizontalement */
+    display: flex;
+    /* Rend cette zone flexible aussi */
+    flex-direction: column;
+    /* Organise Header et MainContent verticalement à l'intérieur */
+}

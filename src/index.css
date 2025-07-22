@@ -1,68 +1,144 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* src/index.css */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Reset CSS de base (équivalent de Tailwind Preflight) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F8FAFC;
+  /* Couleur de fond de la page */
+  color: #1A202C;
+  /* Couleur de texte par défaut */
+}
+
+#root {
   display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  /* S'assure que le conteneur principal prend toute la hauteur */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Styles pour DashboardLayout */
+.dashboard-layout-container {
+  display: flex;
+  flex: 1;
+  /* Prend l'espace restant */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.dashboard-main-content-area {
+  flex-grow: 1;
+  /* Permet au contenu principal de prendre tout l'espace disponible */
+  padding: 24px;
+  /* p-6 en Tailwind */
+  background-color: #F8FAFC;
+  /* Couleur de fond de la zone de contenu */
+}
+
+/* Styles des boutons génériques (utilisés dans MainContent) */
+.btn {
+  padding: 8px 16px;
+  /* px-4 py-2 en Tailwind */
+  border-radius: 9999px;
+  /* rounded-full en Tailwind */
+  color: white;
+  font-size: 0.875rem;
+  /* text-sm en Tailwind */
+  transition: background-color 0.2s ease-in-out;
+  /* transition-colors en Tailwind */
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-details {
+  background-color: #3B82F6;
+  /* bg-blue-500 */
+}
+
+.btn-details:hover {
+  background-color: #2563EB;
+  /* hover:bg-blue-600 */
+}
+
+.btn-update-status {
+  background-color: #6366F1;
+  /* bg-indigo-500 */
+}
+
+.btn-update-status:hover {
+  background-color: #4F46E5;
+  /* hover:bg-indigo-600 */
+}
+
+.btn-report-anomaly,
+.btn-manage-anomaly {
+  background-color: #EF4444;
+  /* bg-red-500 */
+}
+
+.btn-report-anomaly:hover,
+.btn-manage-anomaly:hover {
+  background-color: #DC2626;
+  /* hover:bg-red-600 */
+}
+
+/* Styles pour les titres des sections */
+.text-gray-800 {
+  color: #1A202C;
+  /* Tailwind default gray-800 */
+}
+
+.text-gray-500 {
+  color: #6B7280;
+  /* Tailwind default gray-500 */
+}
+
+.text-gray-600 {
+  color: #4B5563;
+  /* Tailwind default gray-600 */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Base de couleurs pour les statuts */
+.status-delivered {
+  color: #16A34A;
+  /* green-600 */
+  font-weight: 500;
+  /* font-medium */
+}
+
+.status-in-progress {
+  color: #F97316;
+  /* orange-600 */
+  font-weight: 500;
+  /* font-medium */
+}
+
+.status-anomaly {
+  color: #EF4444;
+  /* red-600 */
+  font-weight: 500;
+  /* font-medium */
+}
+
+/* Styles pour les bordures */
+.divide-y>*:not(:first-child) {
+  border-top-width: 1px;
+  border-color: #E5E7EB;
+  /* gray-200 */
 }

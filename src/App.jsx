@@ -9,6 +9,7 @@ import FeaturesSection from './components/FeaturesSection';
 import UserRolesSection from './components/UserRolesSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import Footer from './components/Footer';
+import TransporteurDashboard from "./pages/TransporteurDashboard";
 
 
 // Importez vos pages d'authentification
@@ -25,7 +26,7 @@ import ResponsableSuiviDashboard from './components/Dashboards/ResponsableSuiviD
 import ResponsableUniteProductionDashboard from './components/Dashboards/ResponsableUniteProductionDashboard/ResponsableUniteProductionDashboard.jsx';
 import ResponsableEntrepotDashboard from './components/Dashboards/ResponsableEntrepotDashboard/ResponsableEntrepotDashboard.jsx';
 import ResponsableAgenceDashboard from './components/Dashboards/ResponsableAgenceDashboard/ResponsableAgenceDashboard.jsx';
-import TransporteurDashboard from './components/Dashboards/TransporteurDashboard/TransporteurDashboard.jsx';
+
 
 
 // Votre composant HomePage reste le même
@@ -39,7 +40,7 @@ const HomePage = () => (
 			<HowItWorksSection />
 			{/* <ContactSection /> */}
 		</main>
-		<Footer/>
+		<Footer />
 	</div>
 );
 
@@ -48,8 +49,8 @@ function App() {
 
 	return (
 		<BrowserRouter>
-            {/* COMMENTEZ OU SUPPRIMEZ TEMPORAIREMENT AuthProvider si vous le souhaitez, mais ce n'est pas obligatoire */}
-            {/* <AuthProvider> */}
+			{/* COMMENTEZ OU SUPPRIMEZ TEMPORAIREMENT AuthProvider si vous le souhaitez, mais ce n'est pas obligatoire */}
+			{/* <AuthProvider> */}
 			<Routes>
 				{/* Route de la Landing Page */}
 				<Route path="/" element={<HomePage />} />
@@ -57,26 +58,27 @@ function App() {
 				{/* Routes d'authentification */}
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/register" element={<RegisterPage />} />
-        <Route path="/inscription-reussie" element={<InscriptionReussie />} />
+				<Route path="/inscription-reussie" element={<InscriptionReussie />} />
+				<Route path="/transporteur" element={<TransporteurDashboard />} />
 
-                {/* ROUTES DIRECTES VERS LES DASHBOARDS POUR LA VISUALISATION */}
-                {/* Vous pouvez accéder à ces dashboards directement via leur URL dans la barre d'adresse de votre navigateur */}
-                <Route path="/dashboard/admin" element={<AdminDashboard />} />
-                <Route path="/dashboard/client" element={<ClientDashboard />} />
-                <Route path="/dashboard/responsable-suivi" element={<ResponsableSuiviDashboard />} />
-                {/* Ajoutez ici les routes directes pour les autres dashboards au fur et à mesure : */}
-                <Route path="/dashboard/responsable-unite-production" element={<ResponsableUniteProductionDashboard />} />
-                <Route path="/dashboard/responsable-entrepot" element={<ResponsableEntrepotDashboard />} />
-                <Route path="/dashboard/responsable-agence" element={<ResponsableAgenceDashboard />} />
-                <Route path="/dashboard/transporteur" element={<TransporteurDashboard />} />
+				{/* ROUTES DIRECTES VERS LES DASHBOARDS POUR LA VISUALISATION */}
+				{/* Vous pouvez accéder à ces dashboards directement via leur URL dans la barre d'adresse de votre navigateur */}
+				<Route path="/dashboard/admin" element={<AdminDashboard />} />
+				<Route path="/dashboard/client" element={<ClientDashboard />} />
+				<Route path="/dashboard/responsable-suivi" element={<ResponsableSuiviDashboard />} />
+				{/* Ajoutez ici les routes directes pour les autres dashboards au fur et à mesure : */}
+				<Route path="/dashboard/responsable-unite-production" element={<ResponsableUniteProductionDashboard />} />
+				<Route path="/dashboard/responsable-entrepot" element={<ResponsableEntrepotDashboard />} />
+				<Route path="/dashboard/responsable-agence" element={<ResponsableAgenceDashboard />} />
+				<Route path="/transporteur" element={<TransporteurDashboard />} />
 
-                
+
 				{/* Route pour les chemins non trouvés (doit être la dernière) */}
 				<Route path="*" element={<div>Page introuvable (404)</div>} />
 			</Routes>
-            
+
 		</BrowserRouter>
-    	);
+	);
 
 }
 

@@ -1,0 +1,213 @@
+/* src/components/MainContent.css */
+
+.dashboard-overview-title {
+    font-size: 30px;
+    /* text-3xl */
+    font-weight: 600;
+    /* font-semibold */
+    margin-bottom: 24px;
+    /* mb-6 */
+    color: #1A202C;
+    /* text-gray-800 */
+}
+
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Simule grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 */
+    gap: 24px;
+    /* gap-6 */
+    margin-bottom: 32px;
+    /* mb-8 */
+}
+
+/* Media Queries pour les colonnes des cartes (simule le responsive de Tailwind) */
+@media (min-width: 640px) {
+
+    /* sm */
+    .summary-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* lg */
+    .summary-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+
+    /* xl */
+    .summary-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.summary-card {
+    background-color: white;
+    /* bg-white */
+    border-radius: 8px;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    /* shadow-md */
+    padding: 24px;
+    /* p-6 */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    /* transition-transform */
+}
+
+.summary-card:hover {
+    transform: scale(1.03);
+    /* hover:scale-105 (légèrement ajusté pour la fluidité) */
+}
+
+.summary-card-label {
+    color: #6B7280;
+    /* text-gray-500 */
+    font-size: 18px;
+    /* text-lg */
+}
+
+.summary-card-value {
+    font-size: 36px;
+    /* text-4xl */
+    font-weight: bold;
+    margin-top: 8px;
+    /* mt-2 */
+}
+
+/* Couleurs spécifiques pour les valeurs des cartes */
+.summary-card-value.missions-assigned {
+    color: #2563EB;
+    /* text-blue-700 */
+}
+
+.summary-card-value.missions-in-progress {
+    color: #EA580C;
+    /* text-orange-600 */
+}
+
+.summary-card-value.deliveries-completed {
+    color: #16A34A;
+    /* text-green-700 */
+}
+
+.summary-card-value.anomalies-reported {
+    color: #DC2626;
+    /* text-red-600 */
+}
+
+/* Section Historique des livraisons récentes */
+.history-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+}
+
+.history-title {
+    font-size: 24px;
+    /* text-2xl */
+    font-weight: bold;
+    margin-bottom: 16px;
+    /* mb-4 */
+    color: #1A202C;
+    /* text-gray-800 */
+}
+
+.history-description {
+    color: #6B7280;
+    margin-bottom: 16px;
+}
+
+.delivery-list {
+    list-style: none;
+    /* Supprime les puces par défaut */
+    padding: 0;
+    margin: 0;
+}
+
+.delivery-item {
+    padding-top: 16px;
+    /* py-4 */
+    padding-bottom: 16px;
+    /* py-4 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.delivery-item:not(:first-child) {
+    border-top: 1px solid #E5E7EB;
+    /* divide-y divide-gray-200 */
+}
+
+/* Media query pour les éléments de liste sur écrans moyens */
+@media (min-width: 768px) {
+
+    /* md */
+    .delivery-item {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.delivery-details {
+    /* Styles pour le conteneur des détails (titre, adresse, statut) */
+}
+
+.delivery-title {
+    font-weight: 600;
+    /* font-semibold */
+    color: #1A202C;
+    /* text-gray-800 */
+    font-size: 18px;
+    /* text-lg */
+}
+
+.delivery-address,
+.delivery-status {
+    font-size: 14px;
+    /* text-sm */
+    color: #4B5563;
+    /* text-gray-600 */
+}
+
+.delivery-status {
+    color: #6B7280;
+    /* text-gray-500 */
+}
+
+
+.delivery-actions {
+    margin-top: 8px;
+    /* mt-2 */
+    display: flex;
+    gap: 8px;
+    /* space-x-2 */
+}
+
+/* Media query pour les actions sur écrans moyens */
+@media (min-width: 768px) {
+
+    /* md */
+    .delivery-actions {
+        margin-top: 0;
+        /* md:mt-0 */
+    }
+}
+
+.section-footer-text {
+    color: #6B7280;
+    margin-top: 24px;
+    /* mt-6 */
+    text-align: center;
+    font-size: 14px;
+    /* text-sm */
+}
