@@ -1,8 +1,10 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
 
+
+
+import { AuthProvider } from './context/AuthContext';
 // ... (vos autres imports)
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -12,9 +14,12 @@ import HowItWorksSection from './components/HowItWorksSection';
 import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+
+
 import InscriptionReussie from './pages/InscriptionReussie';
+// IMPORTS DES DASHBOARDS PRINCIPAUX
+
 import AdminDashboard from './components/Dashboards/AdminDashboard/AdminDashboard.jsx';
-import ClientDashboard from './components/Dashboards/ClientDashboard/ClientDashboard.jsx';
 import ResponsableSuiviDashboard from './components/Dashboards/ResponsableSuiviDashboard/ResponsableSuiviDashboard.jsx';
 import ResponsableUniteProductionDashboard from './components/Dashboards/ResponsableUniteProductionDashboard/ResponsableUniteProductionDashboard.jsx';
 import ResponsableEntrepotDashboard from './components/Dashboards/ResponsableEntrepotDashboard/ResponsableEntrepotDashboard.jsx';
@@ -22,6 +27,32 @@ import ResponsableAgenceDashboard from './components/Dashboards/ResponsableAgenc
 import TransporteurDashboard from './components/Dashboards/TransporteurDashboard/TransporteurDashboard.jsx';
 import DashboardRedirect from './components/DashboardRedirect'; // Importer le nouveau composant
 
+
+// NOUVEL IMPORT : Le ClientDashboard devient le layout parent
+import ClientDashboard from './components/Dashboards/ClientDashboard/ClientDashboard.jsx';
+// NOUVEL IMPORT : La page d'accueil spécifique au dashboard client
+import ClientHomeDashboard from './components/Dashboards/ClientDashboard/ClientHomeDashboard.jsx';
+
+// IMPORTS DES SOUS-PAGES DU CLIENT (placeholders)
+import ClientProfile from './components/Dashboards/ClientDashboard/ClientProfile.jsx';
+import ClientOrders from './components/Dashboards/ClientDashboard/ClientOrders.jsx';
+import ClientReturns from './components/Dashboards/ClientDashboard/ClientReturns.jsx';
+// import ClientCredit from './components/Dashboards/ClientDashboard/ClientCredit.jsx';
+import ClientInvoices from './components/Dashboards/ClientDashboard/ClientInvoices.jsx';
+import ClientDeliveryTracking from './components/Dashboards/ClientDashboard/ClientDeliveryTracking.jsx';
+import ClientNewOrder from './components/Dashboards/ClientDashboard/ClientNewOrder.jsx';
+// import ClientReturnHistory from './components/Dashboards/ClientDashboard/ClientReturnHistory.jsx';
+import ClientNewReturn from './components/Dashboards/ClientDashboard/ClientNewReturn.jsx';
+
+// Composant pour la page de réinitialisation de mot de passe (placeholder)
+const ResetPasswordPage = () => (
+  <div style={{ padding: '50px', textAlign: 'center' }}>
+    <h1>Page de Réinitialisation de Mot de Passe</h1>
+    <p>Ce composant représentera la logique de réinitialisation du mot de passe.</p>
+  </div>
+);
+
+// Votre composant HomePage reste le même
 const HomePage = () => (
   <div className="App">
     <Header />
@@ -34,6 +65,7 @@ const HomePage = () => (
     <Footer/>
   </div>
 );
+
 
 function App() {
   return (
