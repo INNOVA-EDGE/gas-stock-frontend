@@ -45,6 +45,8 @@ import ClientDeliveryTracking from './components/Dashboards/ClientDashboard/Clie
 import ClientNewOrder from './components/Dashboards/ClientDashboard/ClientNewOrder.jsx';
 // import ClientReturnHistory from './components/Dashboards/ClientDashboard/ClientReturnHistory.jsx';
 import ClientNewReturn from './components/Dashboards/ClientDashboard/ClientNewReturn.jsx';
+import ClientCartSummary from './components/Dashboards/ClientDashboard/ClientCartSummary.jsx';
+import ClientProductDetails from './components/Dashboards/ClientDashboard/ClientProductDetails.jsx';
 
 // Composant pour la page de réinitialisation de mot de passe (placeholder)
 const ResetPasswordPage = () => (
@@ -73,49 +75,77 @@ const HomePage = () => (
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider> {/* On enveloppe toute l'application */}
+      <AuthProvider>
+        {' '}
+        {/* On enveloppe toute l'application */}
         <Routes>
           {/* Routes publiques */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/inscription-reussie" element={<InscriptionReussie />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/inscription-reussie' element={<InscriptionReussie />} />
 
           {/* Route de redirection magique */}
-          <Route path="/dashboard" element={<DashboardRedirect />} />
+          <Route path='/dashboard' element={<DashboardRedirect />} />
 
           {/* Routes des dashboards (on pourra les protéger plus tard) */}
-          <Route path="/dashboard/admin" element={<AdminDashboard />} />
-          <Route path="/dashboard/client" element={<ClientDashboard />} />
-          <Route path="/dashboard/responsable-suivi" element={<ResponsableSuiviDashboard />} />
-          <Route path="/dashboard/responsable-unite-production" element={<ResponsableUniteProductionDashboard />} />
-          <Route path="/dashboard/responsable-entrepot" element={<ResponsableEntrepotDashboard />} />
-          <Route path="/dashboard/responsable-agence" element={<ResponsableAgenceDashboard />} />
-          <Route path="/dashboard/transporteur" element={<TransporteurDashboard />} />
-          
-{/* ROUTES IMBRIQUÉES POUR LE DASHBOARD CLIENT */}
-        {/* Le ClientDashboard agit comme le layout parent avec sa sidebar */}
-        <Route path="/dashboard/client" element={<ClientDashboard />}>
-          {/* Route par défaut pour /dashboard/client (affiche l'aperçu) */}
-          <Route index element={<ClientHomeDashboard />} /> 
-          {/* Sous-routes pour les différentes sections du client */}
-          <Route path="profile" element={<ClientProfile />} />
-          <Route path="orders" element={<ClientOrders />} />
-          <Route path="returns" element={<ClientReturns />} />
-          {/* <Route path="credit" element={<ClientCredit />} /> */}
-          <Route path="invoices" element={<ClientInvoices />} />
-          <Route path="delivery-tracking" element={<ClientDeliveryTracking />} />
-          <Route path="new-order" element={<ClientNewOrder />} />
-          {/* <Route path="returns/history" element={<ClientReturnHistory />} /> */}
-          <Route path="returns/new" element={<ClientNewReturn />} />
-          {/* Ajoutez d'autres sous-routes ici si nécessaire */}
-        </Route>
+          <Route path='/dashboard/admin' element={<AdminDashboard />} />
+          <Route path='/dashboard/client' element={<ClientDashboard />} />
+          <Route
+            path='/dashboard/responsable-suivi'
+            element={<ResponsableSuiviDashboard />}
+          />
+          <Route
+            path='/dashboard/responsable-unite-production'
+            element={<ResponsableUniteProductionDashboard />}
+          />
+          <Route
+            path='/dashboard/responsable-entrepot'
+            element={<ResponsableEntrepotDashboard />}
+          />
+          <Route
+            path='/dashboard/responsable-agence'
+            element={<ResponsableAgenceDashboard />}
+          />
+          <Route
+            path='/dashboard/transporteur'
+            element={<TransporteurDashboard />}
+          />
 
-          <Route path="*" element={<div>Page introuvable (404)</div>} />
+          {/* ROUTES IMBRIQUÉES POUR LE DASHBOARD CLIENT */}
+          {/* Le ClientDashboard agit comme le layout parent avec sa sidebar */}
+          <Route path='/dashboard/client' element={<ClientDashboard />}>
+            {/* Route par défaut pour /dashboard/client (affiche l'aperçu) */}
+            <Route index element={<ClientHomeDashboard />} />
+            {/* Sous-routes pour les différentes sections du client */}
+            <Route path='profile' element={<ClientProfile />} />
+            <Route path='orders' element={<ClientOrders />} />
+            <Route path='returns' element={<ClientReturns />} />
+            {/* <Route path="credit" element={<ClientCredit />} /> */}
+            <Route path='invoices' element={<ClientInvoices />} />
+            <Route
+              path='delivery-tracking'
+              element={<ClientDeliveryTracking />}
+            />
+            <Route path='new-order' element={<ClientNewOrder />} />
+            {/* <Route path="returns/history" element={<ClientReturnHistory />} /> */}
+            <Route path='returns/new' element={<ClientNewReturn />} />
+            <Route
+              path='/dashboard/client/cart-summary'
+              element={<ClientCartSummary />}
+            />
+            <Route
+              path='/dashboard/client/product-details/:productId'
+              element={<ClientProductDetails />}
+            />
+            {/* Ajoutez d'autres sous-routes ici si nécessaire */}
+          </Route>
+
+          <Route path='*' element={<div>Page introuvable (404)</div>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
-  );
+  )
 }
 
 
