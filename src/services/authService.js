@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // --- Configuration ---
 const KEYCLOAK_URL = 'http://localhost:8180/realms/GasStockRealm/protocol/openid-connect/token';
-const API_URL = 'http://localhost:8080/api/v1';
+const API_URL = 'https://gas-stock-management-t57r.onrender.com/api/v1';
 
 // --- SUPPRIMÉ ---
 // Le secret ne doit JAMAIS être dans le code du frontend.
