@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // --- Configuration ---
 const KEYCLOAK_URL = 'https://gasflow-keycloak.onrender.com/realms/GasStockRealm/protocol/openid-connect/token';
-const API_URL = 'https://gas-stock-management-t57r.onrender.com/api/v1';
+const API_URL = 'https://gas-stock-management-t57r.onrender.com/api/v1/utilisateurs/register-client';
 
 // --- SUPPRIMÉ ---
 // Le secret ne doit JAMAIS être dans le code du frontend.
