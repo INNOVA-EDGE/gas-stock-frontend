@@ -23,7 +23,7 @@ const ClientInvoices = () => {
         
         // Exemple de données factices (à remplacer par les vraies données du backend)
         const fetchedData = [
-          /*
+          
           { 
             id: 'INV001', 
             date: '2025-07-15', 
@@ -38,7 +38,7 @@ const ClientInvoices = () => {
             status: 'En Attente',
             downloadUrl: '#invoice-download-link-2' // Lien factice
           }
-          */
+          
         ]; // Laissez vide pour l'instant
 
         setInvoices(fetchedData);
