@@ -12,30 +12,61 @@
 /* En-tête du contenu principal (là où il y avait "Bienvenue") */
 .contentHeader {
   display: flex;
-  justify-content: flex-start; /* Aligner à gauche */
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px; /* Espace après cet en-tête */
-  padding-bottom: 0; 
+  margin-bottom: 30px;
+  /* border-bottom: 1px solid #eee; */ /* Plus besoin de bordure ici */
+  padding-bottom: 0; /* Plus de padding en bas */
 }
 
 .welcomeMessageText {
-  font-size: 1.8em; /* Taille plus petite, comme demandé */
+  font-size: 1.8em; /* Taille ajustée comme demandé */
   color: #2c3e50;
   font-weight: 700;
-  margin: 0; 
+  margin: 0; /* Supprimer les marges par défaut */
 }
 
-/* Ces classes ne sont plus utilisées dans JSX pour le header, mais gardées si besoin ailleurs */
 .userName {
   color: #3498db; 
 }
 
 .lastLogin {
-  display: none; /* Cache la dernière connexion */
+  display: none; /* Cache la dernière connexion si elle est sous le titre principal */
 }
 
+/* Styles pour le profil et déconnexion en haut à droite */
 .profileActions {
-  display: none; /* Cache complètement les actions de profil si elles étaient là */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.disconnectButton {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.disconnectButton:hover {
+  background-color: #c0392b;
 }
 
 
@@ -60,8 +91,8 @@
 /* Section du bouton "Passer une Nouvelle Commande" (APRÈS LE CARROUSEL) */
 .orderNowSection {
   text-align: center;
-  margin-top: 20px; /* Espacement par rapport au carrousel */
   margin-bottom: 30px; /* Espace après le bouton */
+  /* Pas de padding ou background pour cette section, c'est juste le bouton */
 }
 
 .orderNowButton {
@@ -292,7 +323,7 @@
   border-color: #2980b9; 
 }
 
-/* Vos Autres Actions Rapides Section */
+/* Vos Autres Actions Rapides (Anciennement Raccourcis Utiles) Section */
 .shortcutsSection {
   /* Hérite déjà des styles de .section */
 }
@@ -343,10 +374,15 @@
   }
 
   .contentHeader {
-    flex-direction: column; /* Revenir à la colonne pour les petits écrans */
+    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 20px;
+  }
+
+  .profileActions {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .welcomeMessageText {

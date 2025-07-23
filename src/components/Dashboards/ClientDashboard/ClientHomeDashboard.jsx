@@ -1,11 +1,22 @@
 // src/components/Dashboards/ClientDashboard/ClientHome.jsx
+// Ou src/components/Dashboards/ClientDashboard/ClientHomeDashboard.jsx si c'est le nom de fichier que vous utilisez
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ClientDashboard.module.css'; // Styles généraux du dashboard
 import homeStyles from './ClientHome.module.css'; // Styles spécifiques à la page d'accueil
 import { FaBox, FaChartLine, FaClipboardList, FaTruck, FaCheckCircle, FaTimesCircle, FaBan, FaUndo } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const ClientHome = () => {
+// Importations des images avec des chemins absolus depuis la racine du projet (/src)
+import tof1Image from '/src/assets/images/tof1.jpeg';
+import tof2Image from '/src/assets/images/tof2.webp';
+import tof3Image from '/src/assets/images/tof3.jpeg';
+import tof4Image from '/src/assets/images/tof4.jpeg';
+// Ajoutez ces imports si vous utilisez tof5 et tof6
+// import tof5Image from '/src/assets/images/tof5.jpeg';
+// import tof6Image from '/src/assets/images/tof6.jpeg';
+
+
+const ClientHome = () => { // Ou const ClientHomeDashboard = () => { si c'est le nom de votre composant
   const navigate = useNavigate();
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true); 
@@ -36,10 +47,13 @@ const ClientHome = () => {
         await new Promise(resolve => setTimeout(resolve, 800));
         
         const originalProducts = [
-          { id: 'BTL001', name: 'Bouteille Butane', weight: '12 kg', price: 12000, imageUrl: 'http://googleusercontent.com/img/product_bottle_12kg.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL004', name: 'Bouteille Butane', weight: '5,5 kg', price: 15500, imageUrl: 'http://googleusercontent.com/img/product_bottle_5_5kg.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL005', name: 'Bouteille Propane', weight: '6 kg', price: 7500, imageUrl: 'http://googleusercontent.com/img/product_bottle_6kg_propane.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL002', name: 'Bouteille Butane', weight: '10 kg', price: 10000, imageUrl: 'http://googleusercontent.com/img/product_bottle_10kg.png', inStock: true, deliveryTime: '24h' },
+          { id: 'BTL001', name: 'Bouteille Butane', weight: '12 kg', price: 12000, imageUrl: tof1Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL004', name: 'Bouteille Butane', weight: '5,5 kg', price: 15500, imageUrl: tof2Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL005', name: 'Bouteille Propane', weight: '6 kg', price: 7500, imageUrl: tof3Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL002', name: 'Bouteille Butane', weight: '10 kg', price: 10000, imageUrl: tof4Image, inStock: true, deliveryTime: '24h' },
+          // Décommentez et ajoutez ces lignes si vous souhaitez utiliser tof5 et tof6 :
+          // { id: 'BTL003', name: 'Bouteille Butane', weight: '15 kg', price: 15000, imageUrl: tof5Image, inStock: true, deliveryTime: '24h' },
+          // { id: 'BTL006', name: 'Bouteille Propane', weight: '13 kg', price: 12500, imageUrl: tof6Image, inStock: true, deliveryTime: '24h' },
         ];
         
         const duplicatedProducts = originalProducts.map(p => ({ 
@@ -152,13 +166,11 @@ const ClientHome = () => {
   return (
     <main className={styles.mainContent}>
       {/* En-tête du contenu principal - Affiche seulement "Bienvenue" en haut à gauche */}
-      <div className={homeStyles.contentHeader}>
-        <h1 className={homeStyles.welcomeMessageText}>Bienvenue</h1>
-      </div>
+      
 
       {/* Section Produits Populaires / À la une (Carrousel) */}
       <section className={`${styles.section} ${homeStyles.featuredProductsSection}`}>
-        <h2 className={styles.sectionTitle}><FaBox /> Produits Populaires</h2>
+        <h2 className={homeStyles.sectionTitle}><FaBox /> Produits Populaires</h2>
         
         {isLoading && (
           <div className={homeStyles.loadingMessage}>Chargement des produits...</div>
@@ -188,6 +200,7 @@ const ClientHome = () => {
                 // Le clic sur la carte redirige vers la page de commande
                 onClick={() => handleProductClick(product.id.split('-dup')[0])} 
               >
+                {/* L'image est maintenant liée à la variable d'importation unique */}
                 <img src={product.imageUrl} alt={product.name} className={homeStyles.productImage} />
                 <h3 className={homeStyles.productName}>{product.name} {product.weight}</h3>
                 <p className={homeStyles.productPrice}>{product.price.toLocaleString('fr-CM')} F</p>
@@ -235,7 +248,7 @@ const ClientHome = () => {
 
       {/* Section Aperçu Rapide (Quick Stats) */}
       <section className={`${styles.section} ${homeStyles.quickStats}`}>
-        <h2 className={styles.sectionTitle}><FaChartLine /> Aperçu Rapide</h2>
+        <h2 className={homeStyles.sectionTitle}><FaChartLine /> Aperçu Rapide</h2>
         <div className={homeStyles.statsGrid}>
           <div className={homeStyles.statCard}>
             <h3>Commandes en attente</h3>
@@ -275,4 +288,4 @@ const ClientHome = () => {
   );
 };
 
-export default ClientHome;
+export default ClientHome; // Ou export default ClientHomeDashboard;

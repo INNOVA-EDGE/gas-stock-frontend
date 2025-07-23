@@ -4,6 +4,15 @@ import newOrderStyles from './ClientNewOrder.module.css';
 import { FaShoppingCart, FaSearch, FaCheckCircle, FaTimesCircle, FaTruck, FaBan, FaPlus, FaMinus } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+// Importations des images avec des chemins absolus depuis la racine de src
+import tof1Image from '/src/assets/images/tof1.jpeg';
+import tof2Image from '/src/assets/images/tof2.webp'; // Assurez-vous que l'extension est correcte (.webp)
+import tof3Image from '/src/assets/images/tof3.jpeg';
+import tof4Image from '/src/assets/images/tof4.jpeg';
+import tof5Image from '/src/assets/images/tof5.webp'; // Nouveau fichier d'image ajouté
+import tof6Image from '/src/assets/images/tof6.jpeg'; // Nouveau fichier d'image ajouté
+
+
 const ClientNewOrder = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,12 +31,13 @@ const ClientNewOrder = () => {
         await new Promise(resolve => setTimeout(resolve, 800));
 
         const fetchedProducts = [
-          { id: 'BTL001', name: 'Bouteille Butane', weight: '12 kg', price: 12000, imageUrl: 'http://googleusercontent.com/img/product_bottle_12kg.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL002', name: 'Bouteille Butane', weight: '10 kg', price: 10000, imageUrl: 'http://googleusercontent.com/img/product_bottle_10kg.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL003', name: 'Bouteille Butane', weight: '15 kg', price: 10000, imageUrl: 'http://googleusercontent.com/img/product_bottle_15kg.png', inStock: false, deliveryTime: '24h' },
-          { id: 'BTL004', name: 'Bouteille Butane', weight: '5,5 kg', price: 15500, imageUrl: 'http://googleusercontent.com/img/product_bottle_5_5kg.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL005', name: 'Bouteille Propane', weight: '6 kg', price: 7500, imageUrl: 'http://googleusercontent.com/img/product_bottle_6kg_propane.png', inStock: true, deliveryTime: '24h' },
-          { id: 'BTL006', name: 'Bouteille GPL', weight: '20 kg', price: 25000, imageUrl: 'http://googleusercontent.com/img/product_bottle_20kg.png', inStock: true, deliveryTime: '48h' },
+          // Utilisation des variables d'importation pour les chemins d'images
+          { id: 'BTL001', name: 'Bouteille Butane', weight: '12 kg', price: 12000, imageUrl: tof1Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL002', name: 'Bouteille Butane', weight: '10 kg', price: 10000, imageUrl: tof4Image, inStock: true, deliveryTime: '24h' }, // J'ai supposé tof4 pour BTL002
+          { id: 'BTL003', name: 'Bouteille Butane', weight: '15 kg', price: 10000, imageUrl: tof5Image, inStock: false, deliveryTime: '24h' }, // Utilisation de tof5
+          { id: 'BTL004', name: 'Bouteille Butane', weight: '5,5 kg', price: 15500, imageUrl: tof2Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL005', name: 'Bouteille Propane', weight: '6 kg', price: 7500, imageUrl: tof3Image, inStock: true, deliveryTime: '24h' },
+          { id: 'BTL006', name: 'Bouteille GPL', weight: '20 kg', price: 25000, imageUrl: tof6Image, inStock: true, deliveryTime: '48h' }, // Utilisation de tof6
         ];
         
         setProducts(fetchedProducts);
@@ -118,7 +128,7 @@ const ClientNewOrder = () => {
       </div>
 
       {/* La barre de recherche est masquée comme demandé */}
-      {/*
+      {
       <div className={newOrderStyles.searchBarContainer}>
         <form className={newOrderStyles.searchForm} onSubmit={handleSearchSubmit}>
           <input
@@ -133,7 +143,7 @@ const ClientNewOrder = () => {
           </button>
         </form>
       </div>
-      */}
+      }
 
       {isLoading && (
         <div className={newOrderStyles.loadingMessage}>Chargement des produits...</div>
