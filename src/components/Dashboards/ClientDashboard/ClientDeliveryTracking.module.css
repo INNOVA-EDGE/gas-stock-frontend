@@ -1,0 +1,178 @@
+/* src/components/Dashboards/ClientDashboard/ClientDeliveryTracking.module.css */
+
+.trackingSection {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #8e44ad; /* Bordure violette pour le suivi */
+}
+
+.trackingSection .sectionTitle {
+  color: #2c3e50;
+  font-size: 1.6em;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.loadingMessage,
+.errorMessage,
+.noDeliveriesMessage {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.loadingMessage {
+  background-color: #f3e5f5; /* Violet très clair */
+  color: #8e44ad;
+  border: 1px solid #d1c4e9;
+}
+
+.errorMessage {
+  background-color: #ffe6e6;
+  color: #e74c3c;
+  border: 1px solid #ffcccc;
+}
+
+.noDeliveriesMessage {
+  background-color: #f7f9fa;
+  color: #555;
+  border: 1px dashed #cccccc;
+}
+
+.noDeliveriesMessage p {
+  margin-bottom: 10px;
+}
+
+.linkToNewOrder {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.linkToNewOrder:hover {
+  text-decoration: underline;
+}
+
+.deliveryCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.deliveryCard {
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deliveryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.orderId {
+  font-size: 1.3em;
+  color: #34495e;
+  font-weight: 600;
+  margin: 0;
+}
+
+.deliveryStatus {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Couleurs de statut */
+.statusEnRoute {
+  background-color: #e0f2f7;
+  color: #3498db;
+}
+.statusPreparation {
+  background-color: #fcf8e3;
+  color: #f39c12;
+}
+.statusDelivered {
+  background-color: #e8f5e9;
+  color: #28a745;
+}
+.statusCancelled {
+  background-color: #ffe6e6;
+  color: #e74c3c;
+}
+.statusDefault {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.cardBody {
+  font-size: 0.95em;
+  color: #555;
+}
+
+.cardDetail {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardDetail svg {
+  color: #888;
+}
+
+.viewDetailsButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.viewDetailsButton:hover {
+  background-color: #2980b9;
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+  .trackingSection {
+    padding: 20px;
+  }
+  .trackingSection .sectionTitle {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+  .deliveryCardsContainer {
+    grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+    gap: 20px;
+  }
+}

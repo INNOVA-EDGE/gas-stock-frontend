@@ -1,0 +1,443 @@
+/* src/components/Dashboards/ClientDashboard/ClientHome.module.css */
+
+/* Styles généraux du tableau de bord client */
+.mainContent {
+  padding: 20px;
+  background-color: #f8f8f8; /* Couleur de fond très légère pour une impression de propreté */
+  min-height: calc(100vh - 60px); 
+  font-family: 'Roboto', sans-serif; 
+  color: #444; /* Texte principal légèrement plus doux */
+}
+
+/* En-tête du contenu principal (là où il y avait "Bienvenue") */
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  /* border-bottom: 1px solid #eee; */ /* Plus besoin de bordure ici */
+  padding-bottom: 0; /* Plus de padding en bas */
+}
+
+.welcomeMessageText {
+  font-size: 1.8em; /* Taille ajustée comme demandé */
+  color: #2c3e50;
+  font-weight: 700;
+  margin: 0; /* Supprimer les marges par défaut */
+}
+
+.userName {
+  color: #3498db; 
+}
+
+.lastLogin {
+  display: none; /* Cache la dernière connexion si elle est sous le titre principal */
+}
+
+/* Styles pour le profil et déconnexion en haut à droite */
+.profileActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.disconnectButton {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.disconnectButton:hover {
+  background-color: #c0392b;
+}
+
+
+.section {
+  background-color: #ffffff;
+  border-radius: 10px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+  margin-bottom: 30px;
+  padding: 25px;
+}
+
+.sectionTitle {
+  font-size: 1.6em;
+  color: #34495e;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+/* Section du bouton "Passer une Nouvelle Commande" (APRÈS LE CARROUSEL) */
+.orderNowSection {
+  text-align: center;
+  margin-bottom: 30px; /* Espace après le bouton */
+  /* Pas de padding ou background pour cette section, c'est juste le bouton */
+}
+
+.orderNowButton {
+  background-color: #3498db; /* Bouton bleu principal */
+  color: white;
+  padding: 15px 30px; /* Taille généreuse */
+  border: none;
+  border-radius: 8px; /* Bordures arrondies */
+  font-size: 1.2em; /* Taille de police modérée */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex; /* Pour centrer facilement */
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le bouton */
+}
+
+.orderNowButton:hover {
+  background-color: #2980b9; 
+  transform: translateY(-2px); 
+}
+
+.orderNowButton svg {
+  font-size: 1.5em; /* Taille de l'icône dans le bouton */
+}
+
+
+/* Featured Products Section (Carousel) */
+.featuredProductsSection {
+  /* Hérite déjà des styles de .section */
+}
+
+.loadingMessage, .errorMessage, .noProductsMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #7f8c8d;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.productCarousel {
+  display: flex; 
+  overflow-x: auto; 
+  white-space: nowrap; 
+  padding-bottom: 20px; 
+  cursor: grab; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+}
+
+.productCarousel::-webkit-scrollbar {
+  display: none; 
+}
+
+.productCard {
+  flex-shrink: 0; 
+  width: 280px; 
+  margin-right: 20px; 
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer; 
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.productImage {
+  width: 100%;
+  height: 180px; 
+  object-fit: contain; 
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.productName {
+  font-size: 1.2em;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  white-space: normal; 
+  min-height: 40px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.productPrice {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #27ae60; 
+  margin-bottom: 15px;
+}
+
+.stockStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+
+.inStockIcon {
+  color: #28a745; 
+  margin-right: 5px;
+}
+
+.outOfStockIcon {
+  color: #dc3545; 
+  margin-right: 5px;
+}
+
+.inStockText {
+  color: #28a745;
+}
+
+.outOfStockText {
+  color: #dc3545;
+}
+
+.deliveryInfo {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.viewProductButton {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: 100%; 
+}
+
+.viewProductButton:hover {
+  background-color: #2980b9;
+}
+
+.outOfStockButton {
+  background-color: #95a5a6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: not-allowed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Aperçu Rapide (Quick Stats) Section */
+.quickStats {
+  /* Hérite déjà des styles de .section */
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.statCard {
+  background-color: #ffffff; 
+  border-radius: 10px;
+  padding: 25px; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-3px); 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statCard h3 {
+  font-size: 1.15em; 
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.statNumber {
+  font-size: 2.8em; 
+  font-weight: 700;
+  color: #3498db; 
+  margin-bottom: 15px;
+}
+
+.statActionButton {
+  background-color: transparent; 
+  color: #3498db; 
+  padding: 10px 15px;
+  border: 1px solid #3498db; 
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.statActionButton:hover {
+  background-color: #3498db; 
+  color: white; 
+  border-color: #2980b9; 
+}
+
+/* Vos Autres Actions Rapides (Anciennement Raccourcis Utiles) Section */
+.shortcutsSection {
+  /* Hérite déjà des styles de .section */
+}
+
+.shortcutsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.shortcutButton {
+  background-color: #f8f8f8; 
+  color: #34495e; 
+  padding: 25px 20px;
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.shortcutButton:hover {
+  background-color: #3498db; 
+  color: white; 
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #3498db; 
+}
+
+.shortcutButton svg {
+  font-size: 2.5em; 
+}
+
+/* Styles pour les petits écrans / Responsivité */
+@media (max-width: 768px) {
+  .section {
+    padding: 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.4em;
+  }
+
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .profileActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .welcomeMessageText {
+    font-size: 1.5em;
+  }
+
+  .orderNowButton {
+    padding: 15px 25px;
+    font-size: 1.1em;
+  }
+
+  .statNumber {
+    font-size: 2.2em;
+  }
+  
+  .productCard {
+    width: 240px; 
+    margin-right: 15px;
+  }
+
+  .shortcutButton {
+    padding: 20px 15px;
+    font-size: 1em;
+  }
+  
+  .shortcutButton svg {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 10px;
+  }
+  
+  .contentHeader {
+    margin-bottom: 15px;
+  }
+
+  .welcomeMessageText {
+    font-size: 1.3em;
+  }
+
+  .orderNowButton {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+
+  .section {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .productCard {
+    width: 200px; 
+    margin-right: 10px;
+  }
+}
