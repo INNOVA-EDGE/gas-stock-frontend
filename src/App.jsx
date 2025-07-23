@@ -2,9 +2,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
-
 import { AuthProvider } from './context/AuthContext';
+
+
+
 // ... (vos autres imports)
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -15,8 +16,9 @@ import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
-
 import InscriptionReussie from './pages/InscriptionReussie';
+
+
 // IMPORTS DES DASHBOARDS PRINCIPAUX
 
 import AdminDashboard from './components/Dashboards/AdminDashboard/AdminDashboard.jsx';
@@ -53,6 +55,7 @@ const ResetPasswordPage = () => (
 );
 
 // Votre composant HomePage reste le même
+
 const HomePage = () => (
   <div className="App">
     <Header />
@@ -90,11 +93,30 @@ function App() {
           <Route path="/dashboard/responsable-agence" element={<ResponsableAgenceDashboard />} />
           <Route path="/dashboard/transporteur" element={<TransporteurDashboard />} />
           
+{/* ROUTES IMBRIQUÉES POUR LE DASHBOARD CLIENT */}
+        {/* Le ClientDashboard agit comme le layout parent avec sa sidebar */}
+        <Route path="/dashboard/client" element={<ClientDashboard />}>
+          {/* Route par défaut pour /dashboard/client (affiche l'aperçu) */}
+          <Route index element={<ClientHomeDashboard />} /> 
+          {/* Sous-routes pour les différentes sections du client */}
+          <Route path="profile" element={<ClientProfile />} />
+          <Route path="orders" element={<ClientOrders />} />
+          <Route path="returns" element={<ClientReturns />} />
+          {/* <Route path="credit" element={<ClientCredit />} /> */}
+          <Route path="invoices" element={<ClientInvoices />} />
+          <Route path="delivery-tracking" element={<ClientDeliveryTracking />} />
+          <Route path="new-order" element={<ClientNewOrder />} />
+          {/* <Route path="returns/history" element={<ClientReturnHistory />} /> */}
+          <Route path="returns/new" element={<ClientNewReturn />} />
+          {/* Ajoutez d'autres sous-routes ici si nécessaire */}
+        </Route>
+
           <Route path="*" element={<div>Page introuvable (404)</div>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
   );
 }
+
 
 export default App;
