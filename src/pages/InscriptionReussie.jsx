@@ -1,40 +1,54 @@
-// Fichier : src/pages/InscriptionReussie.jsx
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styles from '../styles/RegisterPage.module.css'; // Réutilisation du style
+import { useLocation, Link } from 'react-router-dom';
+import styles from '../styles/RegisterPage.module.css'; // On réutilise les mêmes styles
 
-export default function InscriptionReussie() {
-  const { state } = useLocation();
-  const clientType = state?.clientType;
+const InscriptionReussie = () => {
+    const location = useLocation();
+    const { state } = location;
 
-  const isReseller = clientType === 'CLIENT_REVENDEUR';
+    // Déterminer quel message afficher en fonction de la provenance
+    const isEmployeeCreation = state?.isEmployeeCreation;
+    const clientType = state?.clientType;
+    const employeeName = state?.employeeName;
 
-  return (
-    <div className={styles.loginPage}>
-      <div className={styles.loginContainer}>
-        <div className={styles.registerBox} style={{ padding: '40px' }}>
-           <Link to="/" className={styles.logoContainer}>
-            <span className={styles.gaz}>gaz</span>
-            <span className={styles.flow}>Flow</span>
-          </Link>
-          <h2 className={styles.title}>Inscription Réussie !</h2>
+    let title = "Opération Réussie !";
+    let message = "L'action a été effectuée avec succès.";
+    let details = "Vous pouvez continuer à naviguer.";
+    let linkPath = "/";
+    let linkText = "Retour à l'accueil";
 
-          {isReseller ? (
-            <p className={styles.subtitle} style={{ textAlign: 'center', lineHeight: '1.6' }}>
-              Votre demande a bien été prise en compte. Un email vous a été envoyé
-              avec les instructions pour finaliser la validation de votre compte.
-            </p>
-          ) : (
-            <p className={styles.subtitle} style={{ textAlign: 'center' }}>
-              Félicitations ! Votre compte a été créé. Vous pouvez maintenant vous connecter.
-            </p>
-          )}
+    if (isEmployeeCreation) {
+        title = "Employé Créé !";
+        message = `Le compte pour ${employeeName} a été créé avec succès.`;
+        details = "Cet employé peut maintenant se connecter avec ses identifiants. Il sera redirigé vers son tableau de bord personnel.";
+        linkPath = "/dashboard/admin";
+        linkText = "Retourner au tableau de bord";
+    } else if (clientType === 'CLIENT_REVENDEUR') {
+        title = "Inscription Reçue !";
+        message = "Votre demande d'inscription en tant que revendeur a bien été prise en compte.";
+        details = "Votre compte est en attente de validation. Vous recevrez un email de confirmation une fois qu'il sera activé par un administrateur.";
+        linkPath = "/login";
+        linkText = "Se connecter";
+    } else { // Cas par défaut pour CLIENT_MENAGE
+        title = "Inscription Réussie !";
+        message = "Votre compte a été créé avec succès.";
+        details = "Vous pouvez maintenant vous connecter pour accéder à votre espace personnel et passer des commandes.";
+        linkPath = "/login";
+        linkText = "Se connecter maintenant";
+    }
 
-          <Link to="/login" className={styles.submitButton} style={{ textDecoration: 'none', textAlign: 'center', marginTop: '20px' }}>
-            Aller à la page de connexion
-          </Link>
+    return (
+        <div className={styles.loginPage}>
+            <div className={styles.loginContainer}>
+                <div className={styles.registerBox} style={{ textAlign: 'center' }}>
+                    <h2 className={styles.title} style={{ color: '#2ecc71' }}>{title}</h2>
+                    <p className={styles.subtitle}>{message}</p>
+                    <p style={{ marginBottom: '30px' }}>{details}</p>
+                    <Link to={linkPath} className={styles.submitButton}>{linkText}</Link>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
-}
+    );
+};
+
+export default InscriptionReussie;
