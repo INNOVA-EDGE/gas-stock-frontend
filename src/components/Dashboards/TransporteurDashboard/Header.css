@@ -1,0 +1,43 @@
+/* src/components/Dashboards/TransporteurDashboard/Header.css */
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px; /* Espace sous le header */
+}
+
+.header-title {
+  color: #333;
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  font-size: 1.5em;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header-icon:hover {
+  color: #007bff;
+}
+
+.header-notification-icon {
+  /* Styles spécifiques si besoin */
+}
+
+.header-profile-icon {
+  /* Styles spécifiques si besoin */
+}

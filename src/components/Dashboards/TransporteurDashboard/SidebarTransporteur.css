@@ -1,0 +1,63 @@
+/* src/components/Dashboards/TransporteurDashboard/SidebarTransporteur.css */
+
+.sidebar-container {
+  width: 250px;
+  background-color: #2c3e50; /* Couleur de fond sombre pour la sidebar */
+  color: #ecf0f1; /* Texte clair */
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 15px;
+}
+
+.sidebar-logo-text {
+  font-size: 2em;
+  color: #00e676; /* Couleur accentuée pour le logo */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  list-style: none; /* Enlève les puces de liste si c'était une ul */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav-item:hover {
+  background-color: #34495e;
+  color: #ffffff;
+}
+
+.sidebar-nav-item.active { /* Classe ajoutée par NavLink quand le chemin est actif */
+  background-color: #007bff; /* Couleur d'accentuation pour l'élément actif */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.sidebar-nav-icon {
+  margin-right: 15px;
+  font-size: 1.2em;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #34495e;
+  margin-top: 20px;
+}

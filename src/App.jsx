@@ -20,7 +20,14 @@ import AdminDashboard from './components/Dashboards/AdminDashboard/AdminDashboar
 import ResponsableSuiviDashboard from './components/Dashboards/ResponsableSuiviDashboard/ResponsableSuiviDashboard.jsx'
 import ResponsableEntrepotDashboard from './components/Dashboards/ResponsableEntrepotDashboard/ResponsableEntrepotDashboard.jsx'
 import ResponsableAgenceDashboard from './components/Dashboards/ResponsableAgenceDashboard/ResponsableAgenceDashboard.jsx'
-import TransporteurDashboard from './components/Dashboards/TransporteurDashboard/TransporteurDashboard.jsx'
+
+// Composants du DASHBOARD TRANSPORTEUR
+import TransporteurDashboard from './components/Dashboards/TransporteurDashboard/TransporteurDashboard'
+import TransporteurHome from './components/Dashboards/TransporteurDashboard/TransporteurHome'
+import MesLivraisonsPage from './components/Dashboards/TransporteurDashboard/MesLivraisonsPage' // Assurez-vous que ce fichier existe
+import HistoriqueTransporteurPage from './components/Dashboards/TransporteurDashboard/HistoriqueTransporteurPage' // Assurez-vous que ce fichier existe
+import ProfileTransporteurPage from './components/Dashboards/TransporteurDashboard/ProfileTransporteurPage' // Assurez-vous que ce fichier existe
+
 import DashboardRedirect from './components/DashboardRedirect' // Importer le nouveau composant
 
 // IMPORTS DES COMPOSANTS DU DASHBOARD CLIENT
@@ -59,6 +66,15 @@ const ResetPasswordPage = () => (
   </div>
 )
 
+// Composant pour la page de déconnexion (placeholder)
+const LogoutPage = () => (
+  <div style={{ padding: '50px', textAlign: 'center' }}>
+    <h1>Déconnexion en cours...</h1>
+    <p>Vous avez été déconnecté avec succès.</p>
+    {/* Ajoutez ici la logique de déconnexion réelle, par exemple redirection vers /login */}
+  </div>
+)
+
 const HomePage = () => (
   <div className='App'>
     <Header />
@@ -82,8 +98,9 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/inscription-reussie' element={<InscriptionReussie />} />
-          <Route path='/reset-password' element={<ResetPasswordPage />} />{' '}
-          {/* Ajout de la route pour ResetPasswordPage */}
+          <Route path='/reset-password' element={<ResetPasswordPage />} />
+          <Route path='/logout' element={<LogoutPage />} />{' '}
+          {/* Route globale pour la déconnexion */}
           {/* Route de redirection magique */}
           <Route path='/dashboard' element={<DashboardRedirect />} />
           {/* Routes des dashboards (on pourra les protéger plus tard) */}
@@ -100,31 +117,33 @@ function App() {
             path='/dashboard/responsable-agence'
             element={<ResponsableAgenceDashboard />}
           />
-          <Route
-            path='/dashboard/transporteur'
-            element={<TransporteurDashboard />}
-          />
+          {/* ROUTES IMBRIQUÉES POUR LE DASHBOARD TRANSPORTEUR */}
+          {/* Le TransporteurDashboard agit comme le layout parent avec sa sidebar et son header */}
+          <Route path='dashboard/transporteur' element={<TransporteurDashboard />}>
+            {/* Route par défaut pour /transporteur : affiche la page d'accueil du transporteur */}
+            <Route index element={<TransporteurHome />} />
+
+            {/* Sous-routes pour les sections de la sidebar */}
+            <Route path='livraisons' element={<MesLivraisonsPage />} />
+            <Route path='historique' element={<HistoriqueTransporteurPage />} />
+            <Route path='profil' element={<ProfileTransporteurPage />} />
+            {/* La route de déconnexion est maintenant gérée globalement ci-dessus, pas ici */}
+          </Route>
           {/* ROUTES IMBRIQUÉES POUR LE DASHBOARD RESPONSABLE UNITE DE PRODUCTION */}
           <Route
             path='/dashboard/production'
             element={<ResponsableUniteProductionDashboard />}
           >
-            <Route index element={<AccueilDashboard />} />{' '}
-            {/* Page d'accueil par défaut */}
+            <Route index element={<AccueilDashboard />} />
             <Route path='gestion-production'>
-              <Route index element={<GestionProductionLanding />} />{' '}
-              {/* Page d'accueil de la gestion de production */}
+              <Route index element={<GestionProductionLanding />} />
               <Route path='planifier' element={<PlanifierProduction />} />
               <Route path='enregistrer' element={<EnregistrerProduction />} />
               <Route path='declarer-incident' element={<DeclarerIncident />} />
             </Route>
             <Route path='gestion-stocks' element={<GestionStocks />} />
             <Route path='expedition' element={<ExpeditionBouteilles />} />
-            <Route
-              path='suivi-expeditions'
-              element={<SuiviExpeditions />}
-            />{' '}
-            {/* Nouvelle route pour le suivi des expéditions */}
+            <Route path='suivi-expeditions' element={<SuiviExpeditions />} />
             <Route
               path='rapports-production'
               element={<RapportsProduction />}
@@ -144,13 +163,11 @@ function App() {
             />
             <Route path='new-order' element={<ClientNewOrder />} />
             <Route path='returns/new' element={<ClientNewReturn />} />
-            <Route path='cart-summary' element={<ClientCartSummary />} />{' '}
-            {/* Chemin corrigé */}
+            <Route path='cart-summary' element={<ClientCartSummary />} />
             <Route
               path='product-details/:productId'
               element={<ClientProductDetails />}
-            />{' '}
-            {/* Chemin corrigé */}
+            />
           </Route>
           {/* Route 404 - Page introuvable */}
           <Route path='*' element={<div>Page introuvable (404)</div>} />
