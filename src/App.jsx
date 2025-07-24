@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import CreateEmployeePage from './pages/CreateEmployeePage'; 
 import { AuthProvider } from './context/AuthContext'
 
 // IMPORTS DES COMPOSANTS DE LA PAGE D'ACCUEIL PUBLIQUE
@@ -103,7 +103,7 @@ function App() {
           {/* Route globale pour la déconnexion */}
           {/* Route de redirection magique */}
           <Route path='/dashboard' element={<DashboardRedirect />} />
-          {/* Routes des dashboards (on pourra les protéger plus tard) */}
+          <Route path="/admin/create-employee" element={<CreateEmployeePage />} /> {/* NOUVELLE ROUTE */}
           <Route path='/dashboard/admin' element={<AdminDashboard />} />
           <Route
             path='/dashboard/responsable-suivi'

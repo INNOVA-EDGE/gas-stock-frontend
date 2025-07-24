@@ -310,3 +310,50 @@
     align-items: center;
   }
 }
+/* ... (tout votre CSS existant) ... */
+
+/* Styles pour les tableaux */
+.tableWrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e6ec;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* Styles pour les boutons d'action */
+td button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.buttonApprove { background-color: #2ecc71; }
+.buttonDecline { background-color: #e74c3c; }
+.buttonToggle { background-color: #f39c12; }
+
+/* Styles pour les statuts */
+.statusActive {
+  color: #27ae60;
+  font-weight: bold;
+}
+.statusInactive {
+  color: #c0392b;
+  font-weight: bold;
+}
