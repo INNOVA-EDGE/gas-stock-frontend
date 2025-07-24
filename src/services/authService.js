@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// --- Configuration ---
+// --- Configuration --
 const KEYCLOAK_URL = 'http://localhost:8180/realms/GasStockRealm/protocol/openid-connect/token';
 const API_URL = 'https://gas-stock-management-t57r.onrender.com/api/v1';
 

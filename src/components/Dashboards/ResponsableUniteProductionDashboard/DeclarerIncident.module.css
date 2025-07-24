@@ -1,0 +1,20 @@
+/* src/components/Dashboards/ResponsableUniteProductionDashboard/DeclarerIncident.module.css */
+@import './EnregistrerProduction.module.css';
+
+.textarea {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+}
+.textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+.submitButton {
+    background-color: var(--red);
+}
+.submitButton:hover {
+    background-color: #c0392b;
+}

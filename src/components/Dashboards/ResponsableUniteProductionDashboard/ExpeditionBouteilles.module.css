@@ -1,0 +1,85 @@
+/* src/components/Dashboards/ResponsableUniteProductionDashboard/ExpeditionBouteilles.module.css */
+@import './GestionProductionLanding.module.css';
+@import './EnregistrerProduction.module.css';
+
+/* Styles pour la section d'enregistrement d'expédition */
+.container {
+    padding: 20px;
+}
+
+.section {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  color: var(--dark-blue);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  font-size: 1.8em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.formContainer {
+    padding: 20px;
+    background-color: var(--light-blue);
+    border-radius: 8px;
+}
+
+.formDescription {
+    color: var(--secondary-text-color);
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.input, .select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.input:focus, .select:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+.submitButton {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.05em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--dark-blue);
+}
