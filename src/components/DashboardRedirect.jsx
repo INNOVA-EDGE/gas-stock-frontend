@@ -8,8 +8,8 @@ const roleDashboardMap = {
   CLIENT_MENAGE: '/dashboard/client',
   CLIENT_REVENDEUR: '/dashboard/client',
   RESPONSABLE_SUIVI: '/dashboard/responsable-suivi',
-  RESPONSABLE_UNITE_PRODUCTION: '/dashboard/responsable-unite-production',
-  RESPONSABLE_ENTREPOT: '/dashboard/responsable-entrepot',
+  RESPONSABLE_UNITE_PRODUCTION: '/dashboard/production',
+  RESPONSABLE_ENTREPOT: '/dashboard/entrepot',
   RESPONSABLE_AGENCE: '/dashboard/responsable-agence',
   TRANSPORTEUR: '/dashboard/transporteur',
 };

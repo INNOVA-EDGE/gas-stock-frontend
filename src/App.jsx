@@ -110,7 +110,7 @@ function App() {
             element={<ResponsableSuiviDashboard />}
           />
           <Route
-            path='/dashboard/responsable-entrepot'
+            path='/dashboard/entrepot'
             element={<ResponsableEntrepotDashboard />}
           />
           <Route

@@ -1,14 +1,13 @@
+/* src/styles/RegisterPage.module.css */
+
+/* On importe tous les styles de la page de connexion */
 @import url('./LoginPage.module.css');
 
-.registerBox {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  text-align: center;
+/* Ici, vous pouvez ajouter des styles spécifiques UNIQUEMENT pour la page d'inscription si nécessaire.
+  Par exemple, si vous aviez un formulaire en plusieurs étapes :
+*/
+.multiStepForm {
+  /* ... styles pour un formulaire multi-étapes ... */
 }
 
-.multiStepForm {
-  /* Ajoutez des styles spécifiques si vous faites un formulaire multi-étapes */
-}
+/* Pour l'instant, aucun style supplémentaire n'est nécessaire car le design est identique. */
